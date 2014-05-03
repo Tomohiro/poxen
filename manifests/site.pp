@@ -24,5 +24,13 @@ node default {
     user => $boxen_user
   }
 
-  # Your manifests goes here.
+
+  # Dock settings
+  include osx::dock::autohide
+  include osx::dock::clear_dock
+
+  # Shell settings
+  osx_chsh { $::luser:
+    shell => '/bin/zsh';
+  }
 }
